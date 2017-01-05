@@ -12,8 +12,8 @@ Run the .sh script with:
     sh validator.sh
     
 ##NB
-Right now this small utility can only run on linux, but I'm planning to release executable for macOS and Windows in the nearly future,
-if you don't want to wait you can compile your own executable with Rust.
+Now this works on macOS too, thanks to Sadir!
+If you are on windows, you may want to compile it yourself (if you do, please send me the compiled files, so that I can upload them here!).
 ##Bugs
 If you encounter any bug, please let me know by creating an issue in this repo.
     
