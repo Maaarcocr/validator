@@ -71,13 +71,15 @@ fn create_random_formulas() -> Vec<String> {
     let mut formulas: Vec<String> = vec!["p".to_string(), "q".to_string(), "r".to_string(), "-p".to_string(), "-q".to_string(), "-r".to_string()];
     let connectives = [conj_formula, disj_formula, impl_formula];
     for _ in 0..300 {
-        let fs = formulas.clone();
-        let p = rng.choose(&fs).unwrap();
-        let q = rng.choose(&fs).unwrap();
-        let conn = rng.choose(&connectives).unwrap();
-        let i: i32 = rng.gen();
-        let result = conn(p,q, i % 2 == 0);
-        if result.len() > 8 {continue;} else {formulas.push(result);}
+        let result: String;
+        {
+            let p = rng.choose(&formulas).unwrap();
+            let q = rng.choose(&formulas).unwrap();
+            let conn = rng.choose(&connectives).unwrap();
+            let i: i32 = rng.gen();
+            result = conn(p,q, i % 2 == 0);
+        }
+        if result.len() > 10 {continue;} else {formulas.push(result);}
     }
     return formulas;
 }
@@ -95,7 +97,7 @@ fn main() {
         } else {
             valid.push(new)
         }
-    } 
+    }
     match write_result(valid) {
         Ok(_) => print!(""),
         Err(e) => panic!("ERROR {}", e)

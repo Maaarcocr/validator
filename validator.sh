@@ -1,4 +1,4 @@
-if [[ "$OSTYPE" == "linux-gnu" ]]; then 
+if [[ "$OSTYPE" == "linux"* ]]; then 
     echo "Oh I see that you are on Linux! I'll run the correct executables"
     ./bin/formula_creator
     ./prover
